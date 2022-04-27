@@ -4,9 +4,14 @@ function find() {
     // return db('users as u')
     // .join("roles as r", "u.role", "r.id")
     // .select("user_id", "username", "role_name")
+     
+    //SELECT user_id, username, role_name FROM users JOIN roles ON users.role_id = roles.role_id
+
     return db('users')
     .join('roles', 'users.role_id', 'roles.role_id')
     .select('user_id', 'username', 'role_name')
+
+
 
   /**
     You will need to join two tables.
@@ -32,6 +37,9 @@ function findBy(filter) {
   // .join('roles', 'users.role_id', 'role.role_id')
   // .select('user_id', 'username', 'password', 'role_name')
   // .where(filter)
+//SELECT user_id, username,password ,role_name FROM users JOIN roles ON users.role_id = roles.role_id
+
+
   return db('users')
     .join('roles', 'users.role_id', 'roles.role_id')
     .select('user_id', 'username', 'password', 'role_name')
@@ -57,6 +65,11 @@ function findById(user_id) {
   // .select('user_id', 'username', 'role_name')
   // .where('user.user_id', user_id)
   // .first()
+
+//   SELECT user_id, username,role_name FROM users JOIN roles ON users.role_id = roles.role_id
+// WHERE users.user_id
+
+
   return db('users')
   .join('roles', 'users.role_id', 'roles.role_id')
   .select('user_id', 'username', 'role_name')
